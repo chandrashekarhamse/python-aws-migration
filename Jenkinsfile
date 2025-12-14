@@ -61,5 +61,12 @@ pipeline {
                 }
             }
         }
+        stage("Deploy to ECS") {
+            steps {
+                script {
+                    echo "Deploying to ecs"
+                }
+            }
+        }
     }
 }
