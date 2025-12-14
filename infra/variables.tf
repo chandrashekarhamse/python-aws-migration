@@ -22,3 +22,8 @@ variable "devops-007-private-subnet-cidr" {
   type        = list(string)
   description = "devops private cidr block range"
 }
+
+variable "devops-007-igw-name" {
+  type        = string
+  description = "igw name"
+}
