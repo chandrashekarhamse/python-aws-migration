@@ -16,8 +16,6 @@ pipeline {
                 '''
             }
         }
-    }
-    stages {
         stage('Create an ECR repo') {
             agent {
                 docker {
