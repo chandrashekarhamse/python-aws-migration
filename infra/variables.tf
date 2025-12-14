@@ -27,3 +27,8 @@ variable "devops-007-igw-name" {
   type        = string
   description = "igw name"
 }
+
+variable "devops-007-route-table-name" {
+  type        = string
+  description = "route table name"
+}

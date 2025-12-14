@@ -21,6 +21,13 @@ module "igw" {
   devops-007-vpc-id   = module.vpc.devops-007-vpc-id
 }
 
+module "routetable" {
+  source                      = "./routetable"
+  devops-007-igw-id           = module.igw.devops-007-igw-id
+  devops-007-route-table-name = var.devops-007-route-table-name
+  devops-007-vpc-id           = module.vpc.devops-007-vpc-id
+}
+
 output "devops-007-aws_ecr_repository_name" {
   description = "ECR repo url"
   value       = module.ecr.devops-007-ecr-repo-url
@@ -39,4 +46,8 @@ output "devops-007-private-subnet-id" {
 
 output "devops-007-igw-id" {
   value = module.igw.devops-007-igw-id
+}
+
+output "devops-007-routetable" {
+  value = module.routetable.devops-007-route-table-id
 }
