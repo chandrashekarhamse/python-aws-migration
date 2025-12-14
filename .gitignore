@@ -1,0 +1,18 @@
+# Ignore misc files
+.DS_Store
+LICENSE.md
+README.md
+
+# Ignore binaries and temporary files
+*.exe
+*.tfstate*
+*.backup
+*.log
+crash.log
+
+# Exclude application code directories if only infra code is needed
+node_modules/
+bin/
+
+# Deny everything by default except the 'terraform' subdirectory
+
