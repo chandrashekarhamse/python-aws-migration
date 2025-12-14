@@ -12,7 +12,7 @@ pipeline {
         stage('Build the docker image') {
             steps {
                 sh '''
-                    docker built -t ${env.DOCKER_IMAGE_NAME}
+                    docker built -t ${env.DOCKER_IMAGE_NAME} .
                 '''
             }
         }
