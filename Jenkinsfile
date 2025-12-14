@@ -12,7 +12,7 @@ pipeline {
         stage('Build the docker image') {
             steps {
                 script {
-                    docker built -t ${env.DOCKER_IMAGE_NAME} .
+                    sh "docker build -t ${env.DOCKER_IMAGE_NAME} ."
                 }
             }
         }
@@ -27,7 +27,7 @@ pipeline {
             steps {
                 dir('infra') {
                     sh '''
-                        echo "creating infra"
+                       echo "creating infra"
                     '''
                 }
             }
