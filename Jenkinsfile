@@ -8,7 +8,7 @@ pipeline {
     environment {
         DOCKER_IMAGE_NAME  = "devops-007-aws-python-app"
         TF_DIR             = "infra"
-        ECR_REGISTERY_URL  = "375332747108.dkr.ecr.us-east-1.amazonaws.com"
+        ECR_REGISTERY_URL  = "375332747108.dkr.ecr.us-east-1.amazonaws.com/devops-007-python-aws-ecr-repo"
         AWS_DEFAULT_REGION = "us-east-1"
     }
     stages {
