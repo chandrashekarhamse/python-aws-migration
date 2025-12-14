@@ -1,1 +1,0 @@
-aws_ecr_repository_name=devops-007-python-aws-ecr-repo
