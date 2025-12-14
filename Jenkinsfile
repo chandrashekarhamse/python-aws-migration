@@ -41,9 +41,7 @@ pipeline {
             }
             steps {
                 dir('infra') {
-                    sh '''
-                       echo "creating infra"
-                    '''
+                    sh "terraform apply --auto-approve -target=module.ecr"
                 }
             }
         }
