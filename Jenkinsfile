@@ -47,6 +47,13 @@ pipeline {
             }
         }
         stage("Push docker image to ECR") {
+            agent {
+                docker {
+                    image 'hashicorp/terraform:1.13'
+                    args '--entrypoint="" -u root -v /var/run/docker.sock:/var/run/docker.sock -t'
+                    reuseNode true
+                }
+            }
             steps {
                 script {
                     env.ECR_REPO_URL = sh (
