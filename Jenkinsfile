@@ -27,9 +27,7 @@ pipeline {
             steps {
                 dir('infra') {
                     sh '''
-                        terraform init 
-                        terraform plan
-                        terraform apply -target=module.ecr.aws_ecr_repository.devops-007-ecr-repo
+                        echo "creating infra"
                     '''
                 }
             }
