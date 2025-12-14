@@ -7,7 +7,8 @@ pipeline {
     }
     environment {
         DOCKER_IMAGE_NAME = "devops-007-aws-python-app"
-        TF_DIR            = 'infra'
+        TF_DIR            = "infra"
+        ECR_REGISTERY_URL = "375332747108.dkr.ecr.us-east-1.amazonaws.com"
     }
     stages {
         stage('Build the docker image') {
@@ -42,6 +43,17 @@ pipeline {
             steps {
                 dir('infra') {
                     sh "terraform apply --auto-approve -target=module.ecr"
+                }
+            }
+        }
+        stage("Push docker image to ECR") {
+            steps {
+                script {
+                    env.ECR_REPO_URL = sh (
+                        script: "terraform output -raw devops-007-aws_ecr_repository_name",
+                        returnStdout: true
+                    ).trim()
+                    echo "ECR repo URL: ${env.ECR_REPO_URL}"
                 }
             }
         }
