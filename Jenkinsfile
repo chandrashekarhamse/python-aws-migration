@@ -11,9 +11,9 @@ pipeline {
     stages {
         stage('Build the docker image') {
             steps {
-                sh '''
+                script {
                     docker built -t ${env.DOCKER_IMAGE_NAME} .
-                '''
+                }
             }
         }
         stage('Create an ECR repo') {
