@@ -33,6 +33,10 @@ output "devops-007-public-subnet-id" {
   value = module.subnet.devops-007-public-subnet-ids
 }
 
-output "name" {
+output "devops-007-private-subnet-id" {
   value = module.subnet.devops-007-private-subnet-ids
+}
+
+output "devops-007-igw-id" {
+  value = module.igw.devops-007-igw-id
 }
