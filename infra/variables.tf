@@ -32,3 +32,18 @@ variable "devops-007-route-table-name" {
   type        = string
   description = "route table name"
 }
+
+variable "devops-007-private-route-table-name" {
+  type        = string
+  description = "private route table name"
+}
+
+variable "devops-007-eip-name" {
+  type        = string
+  description = "EIP name"
+}
+
+variable "devops-007-nat-gateway-name" {
+  type        = string
+  description = "NAT gateway name"
+}

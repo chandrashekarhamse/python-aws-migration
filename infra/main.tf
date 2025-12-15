@@ -21,11 +21,23 @@ module "igw" {
   devops-007-vpc-id   = module.vpc.devops-007-vpc-id
 }
 
+module "nat" {
+  source                       = "./nat"
+  devops-007-eip-name          = var.devops-007-eip-name
+  devops-007-igw-id            = module.igw.devops-007-igw-id
+  devops-007-nat-gateway-name  = var.devops-007-nat-gateway-name
+  devops-007-private-subnet-id = module.subnet.devops-007-private-subnet-ids
+
+}
 module "routetable" {
-  source                      = "./routetable"
-  devops-007-igw-id           = module.igw.devops-007-igw-id
-  devops-007-route-table-name = var.devops-007-route-table-name
-  devops-007-vpc-id           = module.vpc.devops-007-vpc-id
+  source                              = "./routetable"
+  devops-007-igw-id                   = module.igw.devops-007-igw-id
+  devops-007-route-table-name         = var.devops-007-route-table-name
+  devops-007-vpc-id                   = module.vpc.devops-007-vpc-id
+  devops-007-nat-id                   = module.nat.devops-007-nat-id
+  devops-007-private-route-table-name = var.devops-007-private-route-table-name
+  devops-007-private-subnet-ids       = module.subnet.devops-007-private-subnet-ids
+  devops-007-public-subnet-ids        = module.subnet.devops-007-public-subnet-ids
 }
 
 output "devops-007-aws_ecr_repository_name" {
